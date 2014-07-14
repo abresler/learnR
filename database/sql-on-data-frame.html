@@ -1,0 +1,1991 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>SQL on data frame | learnR</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.6.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="renkun-ken">
+    
+    
+    <link rel="next" href="../parallel-computing/README.html" />
+    
+    
+    <link rel="prev" href="../database/sqlite.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-github="renkun-ken/learnR" data-level="10.4" data-basepath=".." data-revision="1405306890615">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/renkun-ken/learnR" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/renkun-ken/learnR/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/renkun-ken/learnR/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >learnR</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://github.com/renkun-ken" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/renkun-ken/learnR/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/renkun-ken/learnR/edit/master/database/sql-on-data-frame.md" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+	
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="quick-start/README.html">
+            
+                
+                    <a href="../quick-start/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Quick start
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="quick-start/what-is-r.html">
+            
+                
+                    <a href="../quick-start/what-is-r.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         What is R
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="quick-start/why-r.html">
+            
+                
+                    <a href="../quick-start/why-r.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         Why R
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="quick-start/how-to-install-r.html">
+            
+                
+                    <a href="../quick-start/how-to-install-r.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         How to install R
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.4" data-path="quick-start/rstudio.html">
+            
+                
+                    <a href="../quick-start/rstudio.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                         RStudio
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.5" data-path="quick-start/first-model.html">
+            
+                
+                    <a href="../quick-start/first-model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                         First model
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="basic-objects/README.html">
+            
+                
+                    <a href="../basic-objects/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Basic objects
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="basic-objects/vector.html">
+            
+                
+                    <a href="../basic-objects/vector.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Vector
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="basic-objects/matrix.html">
+            
+                
+                    <a href="../basic-objects/matrix.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         Matrix
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="basic-objects/array.html">
+            
+                
+                    <a href="../basic-objects/array.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         Array
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="basic-objects/list.html">
+            
+                
+                    <a href="../basic-objects/list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         List
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="basic-objects/data-frame.html">
+            
+                
+                    <a href="../basic-objects/data-frame.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         Data frame
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="basic-objects/function.html">
+            
+                
+                    <a href="../basic-objects/function.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         Function
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="basic-objects/formula.html">
+            
+                
+                    <a href="../basic-objects/formula.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         Formula
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="basic-expressions/README.html">
+            
+                
+                    <a href="../basic-expressions/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         Basic expressions
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="basic-expressions/assignment.html">
+            
+                
+                    <a href="../basic-expressions/assignment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         Assignment
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="basic-expressions/condition.html">
+            
+                
+                    <a href="../basic-expressions/condition.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Condition
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="basic-expressions/loop.html">
+            
+                
+                    <a href="../basic-expressions/loop.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         Loop
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="basic-functions/README.html">
+            
+                
+                    <a href="../basic-functions/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         Basic functions
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="basic-functions/environment.html">
+            
+                
+                    <a href="../basic-functions/environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         Environment
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="basic-functions/package.html">
+            
+                
+                    <a href="../basic-functions/package.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         Package
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="basic-functions/object.html">
+            
+                
+                    <a href="../basic-functions/object.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         Object
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.4" data-path="basic-functions/logical.html">
+            
+                
+                    <a href="../basic-functions/logical.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                         Logical
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.5" data-path="basic-functions/character.html">
+            
+                
+                    <a href="../basic-functions/character.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                         Character
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.6" data-path="basic-functions/math.html">
+            
+                
+                    <a href="../basic-functions/math.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                         Math
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.7" data-path="basic-functions/statistics.html">
+            
+                
+                    <a href="../basic-functions/statistics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                         Statistics
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.8" data-path="basic-functions/data.html">
+            
+                
+                    <a href="../basic-functions/data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                         Data
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9" data-path="basic-functions/graphics.html">
+            
+                
+                    <a href="../basic-functions/graphics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.</b>
+                        
+                         Graphics
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.10" data-path="basic-functions/apply-family.html">
+            
+                
+                    <a href="../basic-functions/apply-family.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.10.</b>
+                        
+                         Apply-family
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="basic-statistics/README.html">
+            
+                
+                    <a href="../basic-statistics/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         Basic statistics
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" data-path="basic-statistics/preparing-data.html">
+            
+                
+                    <a href="../basic-statistics/preparing-data.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         Preparing data
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.2" data-path="basic-statistics/descriptive-statistics.html">
+            
+                
+                    <a href="../basic-statistics/descriptive-statistics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                         Descriptive statistics
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.3" data-path="basic-statistics/linear-regression.html">
+            
+                
+                    <a href="../basic-statistics/linear-regression.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                         Linear regression
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.4" data-path="basic-statistics/hypothesis-testing.html">
+            
+                
+                    <a href="../basic-statistics/hypothesis-testing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                         Hypothesis testing
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.5" data-path="basic-statistics/model-analysis.html">
+            
+                
+                    <a href="../basic-statistics/model-analysis.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                         Model analysis
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.6" data-path="basic-statistics/time-series-modeling.html">
+            
+                
+                    <a href="../basic-statistics/time-series-modeling.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                         Time series modeling
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="basic-data-mining/README.html">
+            
+                
+                    <a href="../basic-data-mining/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         Basic data mining
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="6.1" data-path="basic-data-mining/using-models.html">
+            
+                
+                    <a href="../basic-data-mining/using-models.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                         Using models
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.2" data-path="basic-data-mining/cross-validation.html">
+            
+                
+                    <a href="../basic-data-mining/cross-validation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                         Cross validation
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7" data-path="basic-graphics/README.html">
+            
+                
+                    <a href="../basic-graphics/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         Basic grahpics
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.1" data-path="basic-graphics/scatter-plot.html">
+            
+                
+                    <a href="../basic-graphics/scatter-plot.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                         Scatter plot
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.2" data-path="basic-graphics/line-plot.html">
+            
+                
+                    <a href="../basic-graphics/line-plot.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                         Line plot
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.3" data-path="basic-graphics/bar-chart.html">
+            
+                
+                    <a href="../basic-graphics/bar-chart.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                         Bar chart
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4" data-path="basic-graphics/pie-chart.html">
+            
+                
+                    <a href="../basic-graphics/pie-chart.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                         Pie chart
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.5" data-path="basic-graphics/histogram.html">
+            
+                
+                    <a href="../basic-graphics/histogram.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                         Histogram
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.6" data-path="basic-graphics/composing-plots.html">
+            
+                
+                    <a href="../basic-graphics/composing-plots.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                         Composing plots
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.7" data-path="basic-graphics/partitioning-plots.html">
+            
+                
+                    <a href="../basic-graphics/partitioning-plots.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                         Partitioning plots
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.8" data-path="basic-graphics/graphics-devices.html">
+            
+                
+                    <a href="../basic-graphics/graphics-devices.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                         Graphics devices
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="inside-r/README.html">
+            
+                
+                    <a href="../inside-r/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                         Inside R
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="8.1" data-path="inside-r/lazy-evaluation.html">
+            
+                
+                    <a href="../inside-r/lazy-evaluation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                         Lazy evaluation
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.2" data-path="inside-r/dynamic-scoping.html">
+            
+                
+                    <a href="../inside-r/dynamic-scoping.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                         Dynamic scoping
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.3" data-path="inside-r/object-searching.html">
+            
+                
+                    <a href="../inside-r/object-searching.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                         Object searching
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.4" data-path="inside-r/memory-management.html">
+            
+                
+                    <a href="../inside-r/memory-management.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                         Memory management
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.5" data-path="inside-r/dot-dot-dot.html">
+            
+                
+                    <a href="../inside-r/dot-dot-dot.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                         dot-dot-dot
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.6" data-path="inside-r/functions.html">
+            
+                
+                    <a href="../inside-r/functions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                         Functions
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.7" data-path="inside-r/environment.html">
+            
+                
+                    <a href="../inside-r/environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                         Environment
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.8" data-path="inside-r/expression.html">
+            
+                
+                    <a href="../inside-r/expression.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                         Expression
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.9" data-path="inside-r/call.html">
+            
+                
+                    <a href="../inside-r/call.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                         Call
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9" data-path="data-structures/README.html">
+            
+                
+                    <a href="../data-structures/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                         Data structures
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="9.1" data-path="data-structures/s3-object.html">
+            
+                
+                    <a href="../data-structures/s3-object.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                         S3 object
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.2" data-path="data-structures/s4-object.html">
+            
+                
+                    <a href="../data-structures/s4-object.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                         S4 object
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10" data-path="database/README.html">
+            
+                
+                    <a href="../database/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         Database
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="10.1" data-path="database/sql.html">
+            
+                
+                    <a href="../database/sql.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                         SQL
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.2" data-path="database/excel-workbook.html">
+            
+                
+                    <a href="../database/excel-workbook.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                         Excel workbook
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.3" data-path="database/sqlite.html">
+            
+                
+                    <a href="../database/sqlite.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                         SQLite
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="10.4" data-path="database/sql-on-data-frame.html">
+            
+                
+                    <a href="../database/sql-on-data-frame.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                         SQL on data frame
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11" data-path="parallel-computing/README.html">
+            
+                
+                    <a href="../parallel-computing/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                         Parallel computing
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="11.1" data-path="parallel-computing/parallel.html">
+            
+                
+                    <a href="../parallel-computing/parallel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                         parallel package
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12" data-path="functional-programming/README.html">
+            
+                
+                    <a href="../functional-programming/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                         Functional programming
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="12.1" data-path="functional-programming/anonymous-functions.html">
+            
+                
+                    <a href="../functional-programming/anonymous-functions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.1.</b>
+                        
+                         Anonymous functions
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.2" data-path="functional-programming/closures.html">
+            
+                
+                    <a href="../functional-programming/closures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.2.</b>
+                        
+                         Closures
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.3" data-path="functional-programming/higher-order-functions.html">
+            
+                
+                    <a href="../functional-programming/higher-order-functions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.3.</b>
+                        
+                         Higher-order functions
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13" data-path="profiling/README.html">
+            
+                
+                    <a href="../profiling/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                         Profiling
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="13.1" data-path="profiling/computing-time.html">
+            
+                
+                    <a href="../profiling/computing-time.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.1.</b>
+                        
+                         Computing time
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13.2" data-path="profiling/memory-usage.html">
+            
+                
+                    <a href="../profiling/memory-usage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.2.</b>
+                        
+                         Memory usage
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="14" data-path="advanced-graphics/README.html">
+            
+                
+                    <a href="../advanced-graphics/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                         Advanced graphics
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="14.1" data-path="advanced-graphics/interactive-graphics.html">
+            
+                
+                    <a href="../advanced-graphics/interactive-graphics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.1.</b>
+                        
+                         Interative graphics
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="14.2" data-path="advanced-graphics/ggplot2.html">
+            
+                
+                    <a href="../advanced-graphics/ggplot2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.2.</b>
+                        
+                         ggplot2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="14.3" data-path="advanced-graphics/ggvis.html">
+            
+                
+                    <a href="../advanced-graphics/ggvis.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.3.</b>
+                        
+                         ggvis
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15" data-path="packages/README.html">
+            
+                
+                    <a href="../packages/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                         Packages
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="15.1" data-path="packages/stringr.html">
+            
+                
+                    <a href="../packages/stringr.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.1.</b>
+                        
+                         stringr
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.2" data-path="packages/reshape2.html">
+            
+                
+                    <a href="../packages/reshape2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.2.</b>
+                        
+                         reshape2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.3" data-path="packages/rootsolve.html">
+            
+                
+                    <a href="../packages/rootsolve.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.3.</b>
+                        
+                         rootSolve
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.4" data-path="packages/rsolnp.html">
+            
+                
+                    <a href="../packages/rsolnp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.4.</b>
+                        
+                         Rsolnp
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.5" data-path="packages/plyr.html">
+            
+                
+                    <a href="../packages/plyr.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.5.</b>
+                        
+                         plyr
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.6" data-path="packages/dplyr.html">
+            
+                
+                    <a href="../packages/dplyr.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.6.</b>
+                        
+                         dplyr
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.7" data-path="packages/data-table.html">
+            
+                
+                    <a href="../packages/data-table.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.7.</b>
+                        
+                         data.table
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.8" data-path="packages/jsonlite.html">
+            
+                
+                    <a href="../packages/jsonlite.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.8.</b>
+                        
+                         jsonlite
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.9" data-path="packages/piper.html">
+            
+                
+                    <a href="../packages/piper.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.9.</b>
+                        
+                         pipeR
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.10" data-path="packages/rlist.html">
+            
+                
+                    <a href="../packages/rlist.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.10.</b>
+                        
+                         rlist
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15.11" data-path="packages/rcpp.html">
+            
+                
+                    <a href="../packages/rcpp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.11.</b>
+                        
+                         Rcpp
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="16" data-path="exercises/README.html">
+            
+                
+                    <a href="../exercises/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                         Exercises
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="16.1" data-path="exercises/exercise-1.html">
+            
+                
+                    <a href="../exercises/exercise-1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.1.</b>
+                        
+                         Exercise 1
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 70.96774193548387%;min-width: 69.89247311827957%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../quick-start/README.html" title="Quick start" class="chapter done new-chapter" data-progress="1" style="left: 1.075268817204301%;"></a>
+    
+        <a href="../quick-start/what-is-r.html" title="What is R" class="chapter done " data-progress="1.1" style="left: 2.150537634408602%;"></a>
+    
+        <a href="../quick-start/why-r.html" title="Why R" class="chapter done " data-progress="1.2" style="left: 3.225806451612903%;"></a>
+    
+        <a href="../quick-start/how-to-install-r.html" title="How to install R" class="chapter done " data-progress="1.3" style="left: 4.301075268817204%;"></a>
+    
+        <a href="../quick-start/rstudio.html" title="RStudio" class="chapter done " data-progress="1.4" style="left: 5.376344086021505%;"></a>
+    
+        <a href="../quick-start/first-model.html" title="First model" class="chapter done " data-progress="1.5" style="left: 6.451612903225806%;"></a>
+    
+        <a href="../basic-objects/README.html" title="Basic objects" class="chapter done new-chapter" data-progress="2" style="left: 7.526881720430108%;"></a>
+    
+        <a href="../basic-objects/vector.html" title="Vector" class="chapter done " data-progress="2.1" style="left: 8.602150537634408%;"></a>
+    
+        <a href="../basic-objects/matrix.html" title="Matrix" class="chapter done " data-progress="2.2" style="left: 9.67741935483871%;"></a>
+    
+        <a href="../basic-objects/array.html" title="Array" class="chapter done " data-progress="2.3" style="left: 10.75268817204301%;"></a>
+    
+        <a href="../basic-objects/list.html" title="List" class="chapter done " data-progress="2.4" style="left: 11.827956989247312%;"></a>
+    
+        <a href="../basic-objects/data-frame.html" title="Data frame" class="chapter done " data-progress="2.5" style="left: 12.903225806451612%;"></a>
+    
+        <a href="../basic-objects/function.html" title="Function" class="chapter done " data-progress="2.6" style="left: 13.978494623655914%;"></a>
+    
+        <a href="../basic-objects/formula.html" title="Formula" class="chapter done " data-progress="2.7" style="left: 15.053763440860216%;"></a>
+    
+        <a href="../basic-expressions/README.html" title="Basic expressions" class="chapter done new-chapter" data-progress="3" style="left: 16.129032258064516%;"></a>
+    
+        <a href="../basic-expressions/assignment.html" title="Assignment" class="chapter done " data-progress="3.1" style="left: 17.204301075268816%;"></a>
+    
+        <a href="../basic-expressions/condition.html" title="Condition" class="chapter done " data-progress="3.2" style="left: 18.27956989247312%;"></a>
+    
+        <a href="../basic-expressions/loop.html" title="Loop" class="chapter done " data-progress="3.3" style="left: 19.35483870967742%;"></a>
+    
+        <a href="../basic-functions/README.html" title="Basic functions" class="chapter done new-chapter" data-progress="4" style="left: 20.43010752688172%;"></a>
+    
+        <a href="../basic-functions/environment.html" title="Environment" class="chapter done " data-progress="4.1" style="left: 21.50537634408602%;"></a>
+    
+        <a href="../basic-functions/package.html" title="Package" class="chapter done " data-progress="4.2" style="left: 22.580645161290324%;"></a>
+    
+        <a href="../basic-functions/object.html" title="Object" class="chapter done " data-progress="4.3" style="left: 23.655913978494624%;"></a>
+    
+        <a href="../basic-functions/logical.html" title="Logical" class="chapter done " data-progress="4.4" style="left: 24.731182795698924%;"></a>
+    
+        <a href="../basic-functions/character.html" title="Character" class="chapter done " data-progress="4.5" style="left: 25.806451612903224%;"></a>
+    
+        <a href="../basic-functions/math.html" title="Math" class="chapter done " data-progress="4.6" style="left: 26.881720430107528%;"></a>
+    
+        <a href="../basic-functions/statistics.html" title="Statistics" class="chapter done " data-progress="4.7" style="left: 27.956989247311828%;"></a>
+    
+        <a href="../basic-functions/data.html" title="Data" class="chapter done " data-progress="4.8" style="left: 29.032258064516128%;"></a>
+    
+        <a href="../basic-functions/graphics.html" title="Graphics" class="chapter done " data-progress="4.9" style="left: 30.107526881720432%;"></a>
+    
+        <a href="../basic-functions/apply-family.html" title="Apply-family" class="chapter done " data-progress="4.10" style="left: 31.182795698924732%;"></a>
+    
+        <a href="../basic-statistics/README.html" title="Basic statistics" class="chapter done new-chapter" data-progress="5" style="left: 32.25806451612903%;"></a>
+    
+        <a href="../basic-statistics/preparing-data.html" title="Preparing data" class="chapter done " data-progress="5.1" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../basic-statistics/descriptive-statistics.html" title="Descriptive statistics" class="chapter done " data-progress="5.2" style="left: 34.40860215053763%;"></a>
+    
+        <a href="../basic-statistics/linear-regression.html" title="Linear regression" class="chapter done " data-progress="5.3" style="left: 35.483870967741936%;"></a>
+    
+        <a href="../basic-statistics/hypothesis-testing.html" title="Hypothesis testing" class="chapter done " data-progress="5.4" style="left: 36.55913978494624%;"></a>
+    
+        <a href="../basic-statistics/model-analysis.html" title="Model analysis" class="chapter done " data-progress="5.5" style="left: 37.634408602150536%;"></a>
+    
+        <a href="../basic-statistics/time-series-modeling.html" title="Time series modeling" class="chapter done " data-progress="5.6" style="left: 38.70967741935484%;"></a>
+    
+        <a href="../basic-data-mining/README.html" title="Basic data mining" class="chapter done new-chapter" data-progress="6" style="left: 39.784946236559136%;"></a>
+    
+        <a href="../basic-data-mining/using-models.html" title="Using models" class="chapter done " data-progress="6.1" style="left: 40.86021505376344%;"></a>
+    
+        <a href="../basic-data-mining/cross-validation.html" title="Cross validation" class="chapter done " data-progress="6.2" style="left: 41.935483870967744%;"></a>
+    
+        <a href="../basic-graphics/README.html" title="Basic grahpics" class="chapter done new-chapter" data-progress="7" style="left: 43.01075268817204%;"></a>
+    
+        <a href="../basic-graphics/scatter-plot.html" title="Scatter plot" class="chapter done " data-progress="7.1" style="left: 44.086021505376344%;"></a>
+    
+        <a href="../basic-graphics/line-plot.html" title="Line plot" class="chapter done " data-progress="7.2" style="left: 45.16129032258065%;"></a>
+    
+        <a href="../basic-graphics/bar-chart.html" title="Bar chart" class="chapter done " data-progress="7.3" style="left: 46.236559139784944%;"></a>
+    
+        <a href="../basic-graphics/pie-chart.html" title="Pie chart" class="chapter done " data-progress="7.4" style="left: 47.31182795698925%;"></a>
+    
+        <a href="../basic-graphics/histogram.html" title="Histogram" class="chapter done " data-progress="7.5" style="left: 48.38709677419355%;"></a>
+    
+        <a href="../basic-graphics/composing-plots.html" title="Composing plots" class="chapter done " data-progress="7.6" style="left: 49.46236559139785%;"></a>
+    
+        <a href="../basic-graphics/partitioning-plots.html" title="Partitioning plots" class="chapter done " data-progress="7.7" style="left: 50.53763440860215%;"></a>
+    
+        <a href="../basic-graphics/graphics-devices.html" title="Graphics devices" class="chapter done " data-progress="7.8" style="left: 51.61290322580645%;"></a>
+    
+        <a href="../inside-r/README.html" title="Inside R" class="chapter done new-chapter" data-progress="8" style="left: 52.68817204301075%;"></a>
+    
+        <a href="../inside-r/lazy-evaluation.html" title="Lazy evaluation" class="chapter done " data-progress="8.1" style="left: 53.763440860215056%;"></a>
+    
+        <a href="../inside-r/dynamic-scoping.html" title="Dynamic scoping" class="chapter done " data-progress="8.2" style="left: 54.83870967741935%;"></a>
+    
+        <a href="../inside-r/object-searching.html" title="Object searching" class="chapter done " data-progress="8.3" style="left: 55.913978494623656%;"></a>
+    
+        <a href="../inside-r/memory-management.html" title="Memory management" class="chapter done " data-progress="8.4" style="left: 56.98924731182796%;"></a>
+    
+        <a href="../inside-r/dot-dot-dot.html" title="dot-dot-dot" class="chapter done " data-progress="8.5" style="left: 58.064516129032256%;"></a>
+    
+        <a href="../inside-r/functions.html" title="Functions" class="chapter done " data-progress="8.6" style="left: 59.13978494623656%;"></a>
+    
+        <a href="../inside-r/environment.html" title="Environment" class="chapter done " data-progress="8.7" style="left: 60.215053763440864%;"></a>
+    
+        <a href="../inside-r/expression.html" title="Expression" class="chapter done " data-progress="8.8" style="left: 61.29032258064516%;"></a>
+    
+        <a href="../inside-r/call.html" title="Call" class="chapter done " data-progress="8.9" style="left: 62.365591397849464%;"></a>
+    
+        <a href="../data-structures/README.html" title="Data structures" class="chapter done new-chapter" data-progress="9" style="left: 63.44086021505376%;"></a>
+    
+        <a href="../data-structures/s3-object.html" title="S3 object" class="chapter done " data-progress="9.1" style="left: 64.51612903225806%;"></a>
+    
+        <a href="../data-structures/s4-object.html" title="S4 object" class="chapter done " data-progress="9.2" style="left: 65.59139784946237%;"></a>
+    
+        <a href="../database/README.html" title="Database" class="chapter done " data-progress="10" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../database/sql.html" title="SQL" class="chapter done " data-progress="10.1" style="left: 67.74193548387096%;"></a>
+    
+        <a href="../database/excel-workbook.html" title="Excel workbook" class="chapter done " data-progress="10.2" style="left: 68.81720430107526%;"></a>
+    
+        <a href="../database/sqlite.html" title="SQLite" class="chapter done " data-progress="10.3" style="left: 69.89247311827957%;"></a>
+    
+        <a href="../database/sql-on-data-frame.html" title="SQL on data frame" class="chapter done " data-progress="10.4" style="left: 70.96774193548387%;"></a>
+    
+        <a href="../parallel-computing/README.html" title="Parallel computing" class="chapter  " data-progress="11" style="left: 72.04301075268818%;"></a>
+    
+        <a href="../parallel-computing/parallel.html" title="parallel package" class="chapter  " data-progress="11.1" style="left: 73.11827956989248%;"></a>
+    
+        <a href="../functional-programming/README.html" title="Functional programming" class="chapter  " data-progress="12" style="left: 74.19354838709677%;"></a>
+    
+        <a href="../functional-programming/anonymous-functions.html" title="Anonymous functions" class="chapter  " data-progress="12.1" style="left: 75.26881720430107%;"></a>
+    
+        <a href="../functional-programming/closures.html" title="Closures" class="chapter  " data-progress="12.2" style="left: 76.34408602150538%;"></a>
+    
+        <a href="../functional-programming/higher-order-functions.html" title="Higher-order functions" class="chapter  " data-progress="12.3" style="left: 77.41935483870968%;"></a>
+    
+        <a href="../profiling/README.html" title="Profiling" class="chapter  " data-progress="13" style="left: 78.49462365591398%;"></a>
+    
+        <a href="../profiling/computing-time.html" title="Computing time" class="chapter  " data-progress="13.1" style="left: 79.56989247311827%;"></a>
+    
+        <a href="../profiling/memory-usage.html" title="Memory usage" class="chapter  " data-progress="13.2" style="left: 80.64516129032258%;"></a>
+    
+        <a href="../advanced-graphics/README.html" title="Advanced graphics" class="chapter  " data-progress="14" style="left: 81.72043010752688%;"></a>
+    
+        <a href="../advanced-graphics/interactive-graphics.html" title="Interative graphics" class="chapter  " data-progress="14.1" style="left: 82.79569892473118%;"></a>
+    
+        <a href="../advanced-graphics/ggplot2.html" title="ggplot2" class="chapter  " data-progress="14.2" style="left: 83.87096774193549%;"></a>
+    
+        <a href="../advanced-graphics/ggvis.html" title="ggvis" class="chapter  " data-progress="14.3" style="left: 84.94623655913979%;"></a>
+    
+        <a href="../packages/README.html" title="Packages" class="chapter  " data-progress="15" style="left: 86.02150537634408%;"></a>
+    
+        <a href="../packages/stringr.html" title="stringr" class="chapter  " data-progress="15.1" style="left: 87.09677419354838%;"></a>
+    
+        <a href="../packages/reshape2.html" title="reshape2" class="chapter  " data-progress="15.2" style="left: 88.17204301075269%;"></a>
+    
+        <a href="../packages/rootsolve.html" title="rootSolve" class="chapter  " data-progress="15.3" style="left: 89.24731182795699%;"></a>
+    
+        <a href="../packages/rsolnp.html" title="Rsolnp" class="chapter  " data-progress="15.4" style="left: 90.3225806451613%;"></a>
+    
+        <a href="../packages/plyr.html" title="plyr" class="chapter  " data-progress="15.5" style="left: 91.39784946236558%;"></a>
+    
+        <a href="../packages/dplyr.html" title="dplyr" class="chapter  " data-progress="15.6" style="left: 92.47311827956989%;"></a>
+    
+        <a href="../packages/data-table.html" title="data.table" class="chapter  " data-progress="15.7" style="left: 93.54838709677419%;"></a>
+    
+        <a href="../packages/jsonlite.html" title="jsonlite" class="chapter  " data-progress="15.8" style="left: 94.6236559139785%;"></a>
+    
+        <a href="../packages/piper.html" title="pipeR" class="chapter  " data-progress="15.9" style="left: 95.6989247311828%;"></a>
+    
+        <a href="../packages/rlist.html" title="rlist" class="chapter  " data-progress="15.10" style="left: 96.7741935483871%;"></a>
+    
+        <a href="../packages/rcpp.html" title="Rcpp" class="chapter  " data-progress="15.11" style="left: 97.84946236559139%;"></a>
+    
+        <a href="../exercises/README.html" title="Exercises" class="chapter  " data-progress="16" style="left: 98.9247311827957%;"></a>
+    
+        <a href="../exercises/exercise-1.html" title="Exercise 1" class="chapter  " data-progress="16.1" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_53">
+                    
+                        <h1 id="sql-on-data-frame">SQL on data frame</h1>
+<p>example</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../database/sqlite.html" class="navigation navigation-prev " aria-label="Previous page: SQLite"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../parallel-computing/README.html" class="navigation navigation-next " aria-label="Next page: Parallel computing"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"ga":{"token":"UA-47159422-1"},"disqus":{"shortName":"renkun-ken"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-47159422-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>
